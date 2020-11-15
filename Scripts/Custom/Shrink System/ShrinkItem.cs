@@ -35,7 +35,7 @@ namespace Xanthos.ShrinkSystem
 		private int m_RawStr;
 		private int m_RawDex;
 		private int m_RawInt;
-		private double m_Wrestling;
+        private double m_Wrestling;
 		private double m_Tactics;
 		private double m_Anatomy;
 		private double m_Poisoning;
@@ -48,7 +48,20 @@ namespace Xanthos.ShrinkSystem
 		private double m_Macing;
 		private double m_Swords;
 		private double m_Parry;
-		private int m_EvoEp;
+        private double max_Wrestling;
+        private double max_Tactics;
+        private double max_Anatomy;
+        private double max_Poisoning;
+        private double max_Magery;
+        private double max_EvalInt;
+        private double max_MagicResist;
+        private double max_Meditation;
+        private double max_Archery;
+        private double max_Fencing;
+        private double max_Macing;
+        private double max_Swords;
+        private double max_Parry;
+        private int m_EvoEp;
 		private int m_EvoStage;
 
 		private bool m_IgnoreLockDown;	// Is only ever changed by staff
@@ -257,24 +270,27 @@ namespace Xanthos.ShrinkSystem
 			string combat = "";
 			if (m_Anatomy > 0)
 			{
-				combat = "Anatomy " + m_Anatomy + ", ";
+				combat += "Anatomy " + m_Anatomy + "/" + max_Anatomy + ", ";
 			}
 			if (m_Tactics > 0)
 			{
-				combat = "Tactics " + m_Tactics + ", ";
-			}
+				combat += "Tactics " + m_Tactics + "/" + max_Tactics + ", ";
+            }
 			if (m_Wrestling > 0)
 			{
-				combat = "Wrestling " + m_Wrestling + ", ";
-			}
-			if (m_Poisoning > 0)
+				combat += "Wrestling " + m_Wrestling + "/" + max_Wrestling + ", ";
+            }
+            if (m_Parry > 0)
+            {
+                combat += "Parry " + m_Parry + "/" + max_Parry + ", ";
+            }
+            if (m_Poisoning > 0)
 			{
-				combat = "Poisoning " + m_Poisoning + ", ";
-			}
+				combat += "Poisoning " + m_Poisoning + "/" + max_Poisoning + ", ";
+            }
 			if (combat.Length > 0)
 			{
-				combat.TrimEnd(',', ' ');
-				list.Add(1060660, "Combat Skills\t{0}", combat);
+				list.Add(1060660, "Combat\t{0}", combat.Remove(combat.Length - 2));
 			}
 		}
 
@@ -283,24 +299,23 @@ namespace Xanthos.ShrinkSystem
 			string magic = "";
 			if (m_Magery > 0)
 			{
-				magic = "Magery " + m_Magery + ", ";
-			}
+				magic += "Magery " + m_Magery + "/" + max_Magery + ", ";
+            }
 			if (m_EvalInt > 0)
 			{
-				magic = "Eval Int " + m_EvalInt + ", ";
-			}
+				magic += "Eval Int " + m_EvalInt + "/" + max_EvalInt + ", ";
+            }
 			if (m_MagicResist > 0)
 			{
-				magic = "Magic Resist " + m_MagicResist + ", ";
-			}
+				magic += "Magic Resist " + m_MagicResist + "/" + max_MagicResist + ", ";
+            }
 			if (m_Meditation > 0)
 			{
-				magic = "Meditation " + m_Meditation + ", ";
-			}
+				magic += "Meditation " + m_Meditation + "/" + max_Meditation + ", ";
+            }
 			if (magic.Length > 0)
 			{
-				magic.TrimEnd(',', ' ');
-				list.Add(1060661, "Magic Skills\t{0}", magic);
+				list.Add(1060661, "Magic\t{0}", magic.Remove(magic.Length - 2));
 			}
 		}
 
@@ -309,28 +324,23 @@ namespace Xanthos.ShrinkSystem
 			string weapon = "";
 			if (m_Swords > 0)
 			{
-				weapon = "Swords " + m_Swords + ", ";
-			}
+				weapon += "Swords " + m_Swords + "/" + max_Swords + ", ";
+            }
 			if (m_Fencing > 0)
 			{
-				weapon = "Fencing " + m_Fencing + ", ";
-			}
+				weapon += "Fencing " + m_Fencing + "/" + max_Fencing + ", ";
+            }
 			if (m_Macing > 0)
 			{
-				weapon = "Macing " + m_Macing + ", ";
-			}
-			if (m_Parry > 0)
-			{
-				weapon = "Parry " + m_Parry + ", ";
-			}
+				weapon += "Macing " + m_Macing + "/" + max_Macing + ", ";
+            }
 			if (m_Archery > 0)
 			{
-				weapon = "Archery " + m_Archery + ", ";
-			}
+				weapon += "Archery " + m_Archery + "/" + max_Archery + ", ";
+            }
 			if (weapon.Length > 0)
 			{
-				weapon.TrimEnd(',', ' ');
-				list.Add(1060661, "Weapon Skills\t{0}", weapon);
+				list.Add(1060662, "Weapon\t{0}", weapon.Remove(weapon.Length - 2));
 			}
 		}
 
@@ -347,9 +357,10 @@ namespace Xanthos.ShrinkSystem
 			m_RawStr = m_Pet.RawStr;
 			m_RawDex = m_Pet.RawDex;
 			m_RawInt = m_Pet.RawInt;
-			m_Wrestling = m_Pet.Skills[SkillName.Wrestling].Base;
-			m_Tactics = m_Pet.Skills[SkillName.Tactics].Base;
-			m_Anatomy = m_Pet.Skills[SkillName.Anatomy].Base;
+
+            m_Wrestling = m_Pet.Skills[SkillName.Wrestling].Base;
+            m_Tactics = m_Pet.Skills[SkillName.Tactics].Base;
+            m_Anatomy = m_Pet.Skills[SkillName.Anatomy].Base;
 			m_Poisoning = m_Pet.Skills[SkillName.Poisoning].Base;
 			m_Magery = m_Pet.Skills[SkillName.Magery].Base;
 			m_EvalInt = m_Pet.Skills[SkillName.EvalInt].Base;
@@ -361,7 +372,21 @@ namespace Xanthos.ShrinkSystem
 			m_Swords = m_Pet.Skills[SkillName.Swords].Base;
 			m_Macing = m_Pet.Skills[SkillName.Macing].Base;
 
-			IEvoCreature evo = m_Pet as IEvoCreature;
+            max_Wrestling = m_Pet.Skills[SkillName.Wrestling].Cap;
+            max_Tactics = m_Pet.Skills[SkillName.Tactics].Cap;
+            max_Anatomy = m_Pet.Skills[SkillName.Anatomy].Cap;
+            max_Poisoning = m_Pet.Skills[SkillName.Poisoning].Cap;
+            max_Magery = m_Pet.Skills[SkillName.Magery].Cap;
+            max_EvalInt = m_Pet.Skills[SkillName.EvalInt].Cap;
+            max_MagicResist = m_Pet.Skills[SkillName.MagicResist].Cap;
+            max_Meditation = m_Pet.Skills[SkillName.Meditation].Cap;
+            max_Parry = m_Pet.Skills[SkillName.Parry].Cap;
+            max_Archery = m_Pet.Skills[SkillName.Archery].Cap;
+            max_Fencing = m_Pet.Skills[SkillName.Fencing].Cap;
+            max_Swords = m_Pet.Skills[SkillName.Swords].Cap;
+            max_Macing = m_Pet.Skills[SkillName.Macing].Cap;
+
+            IEvoCreature evo = m_Pet as IEvoCreature;
 
 			if ( null != evo )
 			{
