@@ -125,8 +125,8 @@ namespace Server.Items
                                       Math.Max(attacker.Skills[SkillName.Bushido].Value, attacker.Skills[SkillName.Ninjitsu].Value);
 
             int dcibonus = (int)(10.0 * ((skill - 50.0) / 70.0 + 5));
-            int spellblock = parry <= 70 ? 70 : parry <= 100 ? 40 : 20;
-            int meleeblock = parry <= 70 ? 80 : parry <= 100 ? 65 : 55;
+            int spellblock = 70;
+            int meleeblock = 80;
 
             BeginBlock(attacker, dcibonus, spellblock, meleeblock);
 

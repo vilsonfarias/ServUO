@@ -1354,8 +1354,7 @@ namespace Server.Items
 
             if (shield != null || !defender.Player)
             {
-                double chance = (parry - bushidoNonRacial) / 400.0;
-                // As per OSI, no negitive effect from the Racial stuffs, ie, 120 parry and '0' bushido with humans
+                double chance = parry / 300.0;
 
                 if (chance < 0) // chance shouldn't go below 0
                 {
