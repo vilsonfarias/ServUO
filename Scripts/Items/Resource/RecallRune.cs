@@ -206,7 +206,7 @@ namespace Server.Items
             {
                 m_House = BaseHouse.FindHouseAt(m);
 
-                if (m_House == null)
+                if (m_House == null || m.AccessLevel >= AccessLevel.GameMaster)
                 {
                     Target = m.Location;
                     m_TargetMap = m.Map;
