@@ -27,8 +27,8 @@
 		-->
 		<LootStatus>BlessStatus.BondedOnly</LootStatus>
 		
-		<TamingRequired type="int">75</TamingRequired>  <!-- set to zero for no skill requirement to use shrink tools -->
-		<ShrinkCharges type="int">0</ShrinkCharges>		<!-- number of uses; set to -1 for infinite uses -->
+		<TamingRequired type="int">85</TamingRequired>  <!-- set to zero for no skill requirement to use shrink tools -->
+		<ShrinkCharges type="int">-1</ShrinkCharges>		<!-- number of uses; set to -1 for infinite uses -->
 
 		<PackAnimals type="array">						<!-- To prevent pack exploits, add all pack animals for your server -->
 			<a type="string">Server.Mobiles.PackHorse</a>

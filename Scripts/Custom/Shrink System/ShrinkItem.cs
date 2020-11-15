@@ -239,16 +239,99 @@ namespace Xanthos.ShrinkSystem
 			{
 				list.Add( 1060663, "Name\t{0} Breed: {1} Gender: {2}", m_Name, m_Breed, m_Gender );
 				list.Add( 1061640, ( null == m_Owner ) ? "nobody (WILD)" : m_Owner.Name ); // Owner: ~1_OWNER~
-				list.Add( 1060659, "Stats\tStrength {0}, Dexterity {1}, Intelligence {2}", m_RawStr, m_RawDex, m_RawInt );
-				list.Add( 1060660, "Combat Skills\tWrestling {0}, Tactics {1}, Anatomy {2}, Poisoning {3}", m_Wrestling, m_Tactics, m_Anatomy, m_Poisoning );
-				list.Add( 1060661, "Magic Skills\tMagery {0}, Eval Intel {1}, Magic Resist {2}, Meditation {3}", m_Magery, m_EvalInt, m_MagicResist, m_Meditation );
-				if ( !( 0 == m_Parry && 0 == m_Archery ))
-					list.Add( 1060661, "Weapon Skills\tArchery {0}, Fencing {1}, Macing {2}, Parry {3}, Swords {4}", m_Archery, m_Fencing, m_Macing, m_Parry, m_Swords );
+                list.Add(1060659, "Stats\tStrength {0}, Dexterity {1}, Intelligence {2}", m_RawStr, m_RawDex, m_RawInt);
+
+				addCombatSkills(list);
+				addMagicSkills(list);
+				addWeaponSkills(list);
+
 				if ( m_EvoEp > 0 )
 					list.Add( 1060662, "EP\t{0}, Stage: {1}", m_EvoEp, m_EvoStage + 1 );
 			}
 			else
 				list.Add( 1060663, "Name\t{0}", m_Name );
+		}
+
+		private void addCombatSkills(ObjectPropertyList list)
+        {
+			string combat = "";
+			if (m_Anatomy > 0)
+			{
+				combat = "Anatomy " + m_Anatomy + ", ";
+			}
+			if (m_Tactics > 0)
+			{
+				combat = "Tactics " + m_Tactics + ", ";
+			}
+			if (m_Wrestling > 0)
+			{
+				combat = "Wrestling " + m_Wrestling + ", ";
+			}
+			if (m_Poisoning > 0)
+			{
+				combat = "Poisoning " + m_Poisoning + ", ";
+			}
+			if (combat.Length > 0)
+			{
+				combat.TrimEnd(',', ' ');
+				list.Add(1060660, "Combat Skills\t{0}", combat);
+			}
+		}
+
+		private void addMagicSkills(ObjectPropertyList list)
+		{
+			string magic = "";
+			if (m_Magery > 0)
+			{
+				magic = "Magery " + m_Magery + ", ";
+			}
+			if (m_EvalInt > 0)
+			{
+				magic = "Eval Int " + m_EvalInt + ", ";
+			}
+			if (m_MagicResist > 0)
+			{
+				magic = "Magic Resist " + m_MagicResist + ", ";
+			}
+			if (m_Meditation > 0)
+			{
+				magic = "Meditation " + m_Meditation + ", ";
+			}
+			if (magic.Length > 0)
+			{
+				magic.TrimEnd(',', ' ');
+				list.Add(1060661, "Magic Skills\t{0}", magic);
+			}
+		}
+
+		private void addWeaponSkills(ObjectPropertyList list)
+		{
+			string weapon = "";
+			if (m_Swords > 0)
+			{
+				weapon = "Swords " + m_Swords + ", ";
+			}
+			if (m_Fencing > 0)
+			{
+				weapon = "Fencing " + m_Fencing + ", ";
+			}
+			if (m_Macing > 0)
+			{
+				weapon = "Macing " + m_Macing + ", ";
+			}
+			if (m_Parry > 0)
+			{
+				weapon = "Parry " + m_Parry + ", ";
+			}
+			if (m_Archery > 0)
+			{
+				weapon = "Archery " + m_Archery + ", ";
+			}
+			if (weapon.Length > 0)
+			{
+				weapon.TrimEnd(',', ' ');
+				list.Add(1060661, "Weapon Skills\t{0}", weapon);
+			}
 		}
 
 		private void PreloadProperties()
