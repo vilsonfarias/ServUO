@@ -1376,7 +1376,7 @@ namespace Server
                 int newhits = (int)((wep.Speed * 2500 / (100 + weaponSpeed)) * postcap);
 
                 if (wep is BaseRanged)
-                    newhits /= 2;
+                    newhits = (int)(newhits / 1.4);
 
                 if (HitLeechHits > newhits)
                     HitLeechHits = newhits;
@@ -1390,7 +1390,7 @@ namespace Server
                 int newmana = (int)((wep.Speed * 2500 / (100 + weaponSpeed)) * postcap);
 
                 if (wep is BaseRanged)
-                    newmana /= 2;
+                    newmana = (int)(newmana / 1.4);
 
                 if (HitLeechMana > newmana)
                     HitLeechMana = newmana;
