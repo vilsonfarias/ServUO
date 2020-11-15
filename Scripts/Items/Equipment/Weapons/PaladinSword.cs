@@ -23,6 +23,7 @@ namespace Server.Items
         public override float Speed => 5.0f;
         public override int InitMinHits => 36;
         public override int InitMaxHits => 48;
+
         public override void Serialize(GenericWriter writer)
         {
             base.Serialize(writer);

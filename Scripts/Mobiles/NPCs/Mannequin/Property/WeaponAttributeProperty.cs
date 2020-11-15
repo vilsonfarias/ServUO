@@ -441,6 +441,15 @@ namespace Server.Mobiles.MannequinProperty
         public override int SpriteH => 240;
     }
 
+    public class DirectDamageProperty : ElementalDamageAttr
+    {
+        public override int LabelNumber => 1151806;  // Direct Damage
+        public override int Description => 1152476;  // This property indicates that a percentage of the direct damage (ignores all resistances) inflicted by the weapon 
+        public override AosElementAttribute Element => AosElementAttribute.Direct;
+        public override int SpriteW => 30;
+        public override int SpriteH => 240;
+    }
+
     public class VelocityProperty : ValuedProperty
     {
         public override Catalog Catalog => Catalog.HitEffects;
