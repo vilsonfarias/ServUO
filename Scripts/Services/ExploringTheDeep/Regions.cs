@@ -83,6 +83,9 @@ namespace Server.Regions
 
         public override bool CheckTravel(Mobile m, Point3D newLocation, Spells.TravelCheckType travelType)
         {
+            if (m.AccessLevel > AccessLevel.Player)
+                return true;
+
             return false;
         }
     }
@@ -150,11 +153,17 @@ namespace Server.Regions
 
         public override bool AllowHousing(Mobile from, Point3D p)
         {
+            if (m.AccessLevel > AccessLevel.Player)
+                return true;
+
             return false;
         }
 
         public override bool CheckTravel(Mobile m, Point3D newLocation, Spells.TravelCheckType travelType)
         {
+            if (m.AccessLevel > AccessLevel.Player)
+                return true;
+
             return false;
         }
     }

@@ -768,16 +768,28 @@ namespace Server.Spells
             IsEodon,
         };
 
+        private static readonly bool[,] m_Rules_vilson = new bool[,]
+{
+					/*T2A(Fel),	Khaldun,	Ilshenar,	Wind(Tram),	Wind(Fel),	Dungeons(Fel),	Solen(Tram),	Solen(Fel),	Gauntlet(Malas),	Gauntlet(Ferry),	SafeZone,	ChampionSpawn,	Dungeons(Tokuno[Malas]),	LampRoom(Doom),	GuardianRoom(Doom),	Heartwood,	MLDungeons, SA Dungeons		Tomb of Kings	Maze of Death	SA Entrance,   Eodon*/
+/* Recall From */	{  true,    true,       true,       true,       true,       true,           true,           true,       true,               true,               true,       true,           true,                       true,           true,               true,       true,       true,           true,           true,           true,          true },
+/* Recall To */		{  true,    true,       true,       true,       true,       true,           true,           true,       true,               true,               true,       true,           true,                       true,           true,               true,       true,       true,           true,           true,           true,          true },
+/* Gate From */		{  true,    true,       true,       true,       true,       true,           true,           true,       true,               true,               true,       true,           true,                       true,           true,               true,       true,       true,           true,           true,           true,          true },
+/* Gate To */		{  true,    true,       true,       true,       true,       true,           true,           true,       true,               true,               true,       true,           true,                       true,           true,               true,       true,       true,           true,           true,           true,          true },
+/* Mark In */		{  true,    true,       true,       true,       true,       true,           true,           true,       true,               true,               true,       true,           true,                       true,           true,               true,       true,       true,           true,           true,           true,          true },
+/* Tele From */		{  true,    true,       true,       true,       true,       true,           true,           true,       true,               true,               true,       true,           true,                       true,           true,               true,       true,       true,           true,           true,           true,          true },
+/* Tele To */		{  true,    true,       true,       true,       true,       true,           true,           true,       true,               true,               true,       true,           true,                       true,           true,               true,       true,       true,           true,           true,           true,          true },
+};
+
         private static readonly bool[,] m_Rules = new bool[,]
         {
 					/*T2A(Fel),	Khaldun,	Ilshenar,	Wind(Tram),	Wind(Fel),	Dungeons(Fel),	Solen(Tram),	Solen(Fel),	Gauntlet(Malas),	Gauntlet(Ferry),	SafeZone,	ChampionSpawn,	Dungeons(Tokuno[Malas]),	LampRoom(Doom),	GuardianRoom(Doom),	Heartwood,	MLDungeons, SA Dungeons		Tomb of Kings	Maze of Death	SA Entrance,    Eodon*/
-/* Recall From */	{ false, false,      true,       true,       false,      false,          true,           false,      false,              false,              true,       false,          true,                       false,          false,              false,      false,      true,           true,           false,          false,          true} ,
+/* Recall From */	{ false,    false,      true,       true,       false,      false,          true,           false,      false,              false,              true,       false,          true,                       false,          false,              false,      false,      true,           true,           false,          false,          true  },
 /* Recall To */		{ false,    false,      false,      false,      false,      false,          false,          false,      false,              false,              false,      false,          false,                      false,          false,              false,      false,      false,          false,          false,          false,          false },
 /* Gate From */		{ false,    false,      false,      false,      false,      false,          false,          false,      false,              false,              false,      false,          false,                      false,          false,              false,      false,      false,          false,          false,          false,          false },
 /* Gate To */		{ false,    false,      false,      false,      false,      false,          false,          false,      false,              false,              false,      false,          false,                      false,          false,              false,      false,      false,          false,          false,          false,          false },
 /* Mark In */		{ false,    false,      false,      false,      false,      false,          false,          false,      false,              false,              false,      false,          false,                      false,          false,              false,      false,      false,          false,          false,          false,          false },
-/* Tele From */		{ true,     true,       true,       true,       true,       true,           true,           true,       true,               true,               true,       true,           true,                       true,           true,               false,      true,       true,           false,          false,          false,          true },
-/* Tele To */		{ true,     true,       true,       true,       true,       true,           true,           true,       true,               false,              false,      true,           true,                       true,           true,               false,      false,      true,           false,          false,          false,          true },
+/* Tele From */		{ true,     true,       true,       true,       true,       true,           true,           true,       true,               true,               true,       true,           true,                       true,           true,               false,      true,       true,           false,          false,          false,          true  },
+/* Tele To */		{ true,     true,       true,       true,       true,       true,           true,           true,       true,               false,              false,      true,           true,                       true,           true,               false,      false,      true,           false,          false,          false,          true  },
         };
 
         public static void SendInvalidMessage(Mobile caster, TravelCheckType type)
@@ -877,7 +889,12 @@ namespace Server.Spells
             }
 
             for (int i = 0; isValid && i < m_Validators.Length; ++i)
-                isValid = (m_Rules[v, i] || !m_Validators[i](map, loc));
+            {
+                if (caster.Name == "Vilson")
+                    isValid = (m_Rules_vilson[v, i] || !m_Validators[i](map, loc));
+                else
+                    isValid = (m_Rules[v, i] || !m_Validators[i](map, loc));
+            }
 
             if (!isValid && caster != null)
                 SendInvalidMessage(caster, type);
