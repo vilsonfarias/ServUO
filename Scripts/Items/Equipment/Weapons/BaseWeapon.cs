@@ -3131,21 +3131,7 @@ namespace Server.Items
             }
             #endregion
 
-            #region Modifiers
-            /*
-            * The following are damage modifiers whose effect shows on the status bar.
-            * Capped at 100% total.
-            */
-            int damageBonus = AosAttributes.GetValue(attacker, AosAttribute.WeaponDamage);
-
-            if (damageBonus > 100)
-            {
-                damageBonus = 100;
-            }
-            #endregion
-
-            double totalBonus = strengthBonus + anatomyBonus + tacticsBonus + lumberBonus +
-                                (damageBonus / 100.0);
+            double totalBonus = strengthBonus + anatomyBonus + tacticsBonus + lumberBonus;
 
             return damage + (int)(damage * totalBonus);
         }

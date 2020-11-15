@@ -55,3 +55,6 @@
 
 # Exclude Data Files
 /Data/PVPTournamentSystemData
+ServUO.1.0.0.nupkg
+Application/Properties/PublishProfiles/FolderProfile.pubxml
+Application/Properties/PublishProfiles/FolderProfile.pubxml.user
