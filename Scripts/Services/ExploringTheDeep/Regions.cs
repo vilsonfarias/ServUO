@@ -153,7 +153,7 @@ namespace Server.Regions
 
         public override bool AllowHousing(Mobile from, Point3D p)
         {
-            if (m.AccessLevel > AccessLevel.Player)
+            if (from.AccessLevel > AccessLevel.Player)
                 return true;
 
             return false;

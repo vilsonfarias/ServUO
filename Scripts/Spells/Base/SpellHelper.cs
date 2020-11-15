@@ -768,7 +768,7 @@ namespace Server.Spells
             IsEodon,
         };
 
-        private static readonly bool[,] m_Rules_vilson = new bool[,]
+        private static readonly bool[,] m_Rules_Game_Master = new bool[,]
 {
 					/*T2A(Fel),	Khaldun,	Ilshenar,	Wind(Tram),	Wind(Fel),	Dungeons(Fel),	Solen(Tram),	Solen(Fel),	Gauntlet(Malas),	Gauntlet(Ferry),	SafeZone,	ChampionSpawn,	Dungeons(Tokuno[Malas]),	LampRoom(Doom),	GuardianRoom(Doom),	Heartwood,	MLDungeons, SA Dungeons		Tomb of Kings	Maze of Death	SA Entrance,   Eodon*/
 /* Recall From */	{  true,    true,       true,       true,       true,       true,           true,           true,       true,               true,               true,       true,           true,                       true,           true,               true,       true,       true,           true,           true,           true,          true },
@@ -890,8 +890,8 @@ namespace Server.Spells
 
             for (int i = 0; isValid && i < m_Validators.Length; ++i)
             {
-                if (caster.Name == "Vilson")
-                    isValid = (m_Rules_vilson[v, i] || !m_Validators[i](map, loc));
+                if (caster.AccessLevel >= AccessLevel.VIP)
+                    isValid = (m_Rules_Game_Master[v, i] || !m_Validators[i](map, loc));
                 else
                     isValid = (m_Rules[v, i] || !m_Validators[i](map, loc));
             }
