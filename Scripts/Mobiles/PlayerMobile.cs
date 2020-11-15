@@ -1898,7 +1898,7 @@ namespace Server.Mobiles
                 strBase = Str; //Str already includes GetStatOffset/str
                 strOffs = AosAttributes.GetValue(this, AosAttribute.BonusHits);
 
-                if (strOffs > 25 && IsPlayer())
+                if (strOffs > 25 && IsPlayer() && AccessLevel == AccessLevel.Player)
                 {
                     strOffs = 25;
                 }
