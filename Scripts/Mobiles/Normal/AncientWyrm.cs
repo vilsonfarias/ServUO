@@ -11,34 +11,42 @@ namespace Server.Mobiles
             Body = 46;
             BaseSoundID = 362;
 
-            SetStr(1096, 1185);
-            SetDex(86, 175);
-            SetInt(686, 775);
+            SetStr(1200, 1200);
+            SetDex(175, 175);
+            SetInt(1200, 1200);
 
-            SetHits(658, 711);
+            SetHits(3500, 3500);
 
-            SetDamage(29, 35);
+            SetDamage(40, 60);
 
             SetDamageType(ResistanceType.Physical, 75);
             SetDamageType(ResistanceType.Fire, 25);
 
-            SetResistance(ResistanceType.Physical, 65, 75);
-            SetResistance(ResistanceType.Fire, 80, 90);
-            SetResistance(ResistanceType.Cold, 70, 80);
-            SetResistance(ResistanceType.Poison, 60, 70);
-            SetResistance(ResistanceType.Energy, 60, 70);
+            SetResistance(ResistanceType.Physical, 85, 85);
+            SetResistance(ResistanceType.Fire, 95, 95);
+            SetResistance(ResistanceType.Cold, 80, 80);
+            SetResistance(ResistanceType.Poison, 90, 90);
+            SetResistance(ResistanceType.Energy, 90, 90);
 
-            SetSkill(SkillName.EvalInt, 80.1, 100.0);
-            SetSkill(SkillName.Magery, 80.1, 100.0);
-            SetSkill(SkillName.Meditation, 52.5, 75.0);
-            SetSkill(SkillName.MagicResist, 100.5, 150.0);
-            SetSkill(SkillName.Tactics, 97.6, 100.0);
-            SetSkill(SkillName.Wrestling, 97.6, 100.0);
+            SetSkill(SkillName.Anatomy, 150.0, 150.0);
+            SetSkill(SkillName.EvalInt, 150.0, 150.0);
+            SetSkill(SkillName.Magery, 180.0, 180.0);
+            SetSkill(SkillName.Meditation, 200.0, 200.0);
+            SetSkill(SkillName.MagicResist, 150, 150.0);
+            SetSkill(SkillName.Tactics, 150.0, 150.0);
+            SetSkill(SkillName.Wrestling, 150.0, 150.0);
 
             Fame = 22500;
             Karma = -22500;
 
+            Tamable = true;
+            ControlSlots = 3;
+            MinTameSkill = 180;
+
             SetSpecialAbility(SpecialAbility.DragonBreath);
+            SetSpecialAbility(SpecialAbility.AngryFire);
+            SetSpecialAbility(SpecialAbility.ColossalRage);
+            SetSpecialAbility(SpecialAbility.ViciousBite);
         }
 
         public AncientWyrm(Serial serial)
@@ -53,8 +61,8 @@ namespace Server.Mobiles
         public override int Meat => 19;
         public override int Scales => 12;
         public override ScaleType ScaleType => (ScaleType)Utility.Random(4);
-        public override Poison PoisonImmune => Poison.Regular;
-        public override Poison HitPoison => Utility.RandomBool() ? Poison.Lesser : Poison.Regular;
+        public override Poison PoisonImmune => Poison.Greater;
+        public override Poison HitPoison => Utility.RandomBool() ? Poison.Regular : Poison.Greater;
         public override int TreasureMapLevel => 5;
         public override bool CanFly => true;
         public override void GenerateLoot()
