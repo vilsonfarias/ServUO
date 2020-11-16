@@ -753,12 +753,12 @@ namespace Server.Gumps
                         from.SendGump(new Tools_mage_scrollGump(from, m_Scroll));
                         break;
                     }
-                case 64:
+/*                case 64:
                     {
                         from.CloseGump(typeof(Tools_tools_mage));
                         from.SendGump(new Tools_tools_mage(from, m_Scroll));
                         break;
-                    }
+                    }*/
             }
         }
     }
