@@ -74,14 +74,46 @@ namespace Server.Gumps
                     {
                         break;
                     }
-                case 1: { if (m_Scroll.I01FocusAttack == 0) { m_Scroll.I01FocusAttack = 1; } else { m_Scroll.I01FocusAttack = 0; } from.SendGump(new Tools_ninjitsu_scrollGump(from, m_Scroll)); break; }
-                case 2: { if (m_Scroll.I02DeathStrike == 0) { m_Scroll.I02DeathStrike = 1; } else { m_Scroll.I02DeathStrike = 0; } from.SendGump(new Tools_ninjitsu_scrollGump(from, m_Scroll)); break; }
-                case 3: { if (m_Scroll.I03AnimalForm == 0) { m_Scroll.I03AnimalForm = 1; } else { m_Scroll.I03AnimalForm = 0; } from.SendGump(new Tools_ninjitsu_scrollGump(from, m_Scroll)); break; }
-                case 4: { if (m_Scroll.I04KiAttack == 0) { m_Scroll.I04KiAttack = 1; } else { m_Scroll.I04KiAttack = 0; } from.SendGump(new Tools_ninjitsu_scrollGump(from, m_Scroll)); break; }
-                case 5: { if (m_Scroll.I05SurpriseAttack == 0) { m_Scroll.I05SurpriseAttack = 1; } else { m_Scroll.I05SurpriseAttack = 0; } from.SendGump(new Tools_ninjitsu_scrollGump(from, m_Scroll)); break; }
-                case 6: { if (m_Scroll.I06Backstab == 0) { m_Scroll.I06Backstab = 1; } else { m_Scroll.I06Backstab = 0; } from.SendGump(new Tools_ninjitsu_scrollGump(from, m_Scroll)); break; }
-                case 7: { if (m_Scroll.I07Shadowjump == 0) { m_Scroll.I07Shadowjump = 1; } else { m_Scroll.I07Shadowjump = 0; } from.SendGump(new Tools_ninjitsu_scrollGump(from, m_Scroll)); break; }
-                case 8: { if (m_Scroll.I08MirrorImage == 0) { m_Scroll.I08MirrorImage = 1; } else { m_Scroll.I08MirrorImage = 0; } from.SendGump(new Tools_ninjitsu_scrollGump(from, m_Scroll)); break; }
+                case 1:
+                    {
+                        m_Scroll.I01FocusAttack = m_Scroll.I01FocusAttack == 0 ? 1 : 0;
+                        from.SendGump(new Tools_ninjitsu_scrollGump(from, m_Scroll)); break;
+                    }
+                case 2:
+                    {
+                        m_Scroll.I02DeathStrike = m_Scroll.I02DeathStrike == 0 ? 1 : 0;
+                        from.SendGump(new Tools_ninjitsu_scrollGump(from, m_Scroll)); break;
+                    }
+                case 3:
+                    {
+                        m_Scroll.I03AnimalForm = m_Scroll.I03AnimalForm == 0 ? 1 : 0;
+                        from.SendGump(new Tools_ninjitsu_scrollGump(from, m_Scroll)); break;
+                    }
+                case 4:
+                    {
+                        m_Scroll.I04KiAttack = m_Scroll.I04KiAttack == 0 ? 1 : 0;
+                        from.SendGump(new Tools_ninjitsu_scrollGump(from, m_Scroll)); break;
+                    }
+                case 5:
+                    {
+                        m_Scroll.I05SurpriseAttack = m_Scroll.I05SurpriseAttack == 0 ? 1 : 0;
+                        from.SendGump(new Tools_ninjitsu_scrollGump(from, m_Scroll)); break;
+                    }
+                case 6:
+                    {
+                        m_Scroll.I06Backstab = m_Scroll.I06Backstab == 0 ? 1 : 0;
+                        from.SendGump(new Tools_ninjitsu_scrollGump(from, m_Scroll)); break;
+                    }
+                case 7:
+                    {
+                        m_Scroll.I07Shadowjump = m_Scroll.I07Shadowjump == 0 ? 1 : 0;
+                        from.SendGump(new Tools_ninjitsu_scrollGump(from, m_Scroll)); break;
+                    }
+                case 8:
+                    {
+                        m_Scroll.I08MirrorImage = m_Scroll.I08MirrorImage == 0 ? 1 : 0;
+                        from.SendGump(new Tools_ninjitsu_scrollGump(from, m_Scroll)); break;
+                    }
                 case 9:
                     {
                         from.CloseGump(typeof(Tools_tools_ninjitsu));
@@ -113,14 +145,46 @@ namespace Server.Gumps
             this.AddImage(0, 0, 11016, 1149);
             int dby = 50;
 
-            if (HasSpell(from, 200) && m_Scroll.I01FocusAttack == 1) { this.AddButton(dby, 5, 21280, 21280, 1, GumpButtonType.Reply, 1); dby = dby + 45; }
-            if (HasSpell(from, 201) && m_Scroll.I02DeathStrike == 1) { this.AddButton(dby, 5, 21281, 21281, 2, GumpButtonType.Reply, 1); dby = dby + 45; }
-            if (HasSpell(from, 202) && m_Scroll.I03AnimalForm == 1) { this.AddButton(dby, 5, 21282, 21282, 3, GumpButtonType.Reply, 1); dby = dby + 45; }
-            if (HasSpell(from, 203) && m_Scroll.I04KiAttack == 1) { this.AddButton(dby, 5, 21283, 21283, 4, GumpButtonType.Reply, 1); dby = dby + 45; }
-            if (HasSpell(from, 204) && m_Scroll.I05SurpriseAttack == 1) { this.AddButton(dby, 5, 21284, 21284, 5, GumpButtonType.Reply, 1); dby = dby + 45; }
-            if (HasSpell(from, 205) && m_Scroll.I06Backstab == 1) { this.AddButton(dby, 5, 21285, 21285, 6, GumpButtonType.Reply, 1); dby = dby + 45; }
-            if (HasSpell(from, 206) && m_Scroll.I07Shadowjump == 1) { this.AddButton(dby, 5, 21286, 21286, 7, GumpButtonType.Reply, 1); dby = dby + 45; }
-            if (HasSpell(from, 207) && m_Scroll.I08MirrorImage == 1) { this.AddButton(dby, 5, 21287, 21287, 8, GumpButtonType.Reply, 1); dby = dby + 45; }
+            if (HasSpell(from, SpellRegistry.GetRegistryNumber(typeof(FocusAttack))) && m_Scroll.I01FocusAttack == 1)
+            {
+                this.AddButton(dby, 5, 21280, 21280, 1, GumpButtonType.Reply, 1);
+                dby = dby + 45;
+            }
+            if (HasSpell(from, SpellRegistry.GetRegistryNumber(typeof(DeathStrike))) && m_Scroll.I02DeathStrike == 1)
+            {
+                this.AddButton(dby, 5, 21281, 21281, 2, GumpButtonType.Reply, 1);
+                dby = dby + 45;
+            }
+            if (HasSpell(from, SpellRegistry.GetRegistryNumber(typeof(AnimalForm))) && m_Scroll.I03AnimalForm == 1)
+            {
+                this.AddButton(dby, 5, 21282, 21282, 3, GumpButtonType.Reply, 1);
+                dby = dby + 45;
+            }
+            if (HasSpell(from, SpellRegistry.GetRegistryNumber(typeof(KiAttack))) && m_Scroll.I04KiAttack == 1)
+            {
+                this.AddButton(dby, 5, 21283, 21283, 4, GumpButtonType.Reply, 1);
+                dby = dby + 45;
+            }
+            if (HasSpell(from, SpellRegistry.GetRegistryNumber(typeof(SurpriseAttack))) && m_Scroll.I05SurpriseAttack == 1)
+            {
+                this.AddButton(dby, 5, 21284, 21284, 5, GumpButtonType.Reply, 1);
+                dby = dby + 45;
+            }
+            if (HasSpell(from, SpellRegistry.GetRegistryNumber(typeof(Backstab))) && m_Scroll.I06Backstab == 1)
+            {
+                this.AddButton(dby, 5, 21285, 21285, 6, GumpButtonType.Reply, 1);
+                dby = dby + 45;
+            }
+            if (HasSpell(from, SpellRegistry.GetRegistryNumber(typeof(Shadowjump))) && m_Scroll.I07Shadowjump == 1)
+            {
+                this.AddButton(dby, 5, 21286, 21286, 7, GumpButtonType.Reply, 1);
+                dby = dby + 45;
+            }
+            if (HasSpell(from, SpellRegistry.GetRegistryNumber(typeof(MirrorImage))) && m_Scroll.I08MirrorImage == 1)
+            {
+                this.AddButton(dby, 5, 21287, 21287, 8, GumpButtonType.Reply, 1);
+                dby = dby + 45;
+            }
         }
 
         public override void OnResponse(NetState state, RelayInfo info)
@@ -129,14 +193,76 @@ namespace Server.Gumps
             switch (info.ButtonID)
             {
                 case 0: { break; }
-                case 1: { if (HasSpell(from, 200)) { new FocusAttack(); from.SendGump(new Tools_tools_ninjitsu(from, m_Scroll)); } break; }
-                case 2: { if (HasSpell(from, 201)) { new DeathStrike(); from.SendGump(new Tools_tools_ninjitsu(from, m_Scroll)); } break; }
-                case 3: { if (HasSpell(from, 202)) { new AnimalForm(from, null).Cast(); from.SendGump(new Tools_tools_ninjitsu(from, m_Scroll)); } break; }
-                case 4: { if (HasSpell(from, 203)) { new KiAttack(); from.SendGump(new Tools_tools_ninjitsu(from, m_Scroll)); } break; }
-                case 5: { if (HasSpell(from, 204)) { new SurpriseAttack(); from.SendGump(new Tools_tools_ninjitsu(from, m_Scroll)); } break; }
-                case 6: { if (HasSpell(from, 205)) { new Backstab(); from.SendGump(new Tools_tools_ninjitsu(from, m_Scroll)); } break; }
-                case 7: { if (HasSpell(from, 206)) { new Shadowjump(from, null).Cast(); from.SendGump(new Tools_tools_ninjitsu(from, m_Scroll)); } break; }
-                case 8: { if (HasSpell(from, 207)) { new MirrorImage(from, null).Cast(); from.SendGump(new Tools_tools_ninjitsu(from, m_Scroll)); } break; }
+                case 1:
+                    {
+                        if (HasSpell(from, SpellRegistry.GetRegistryNumber(typeof(FocusAttack))))
+                        {
+                            new FocusAttack();
+                            from.SendGump(new Tools_tools_ninjitsu(from, m_Scroll));
+                        }
+                        break;
+                    }
+                case 2:
+                    {
+                        if (HasSpell(from, SpellRegistry.GetRegistryNumber(typeof(DeathStrike))))
+                        {
+                            new DeathStrike(); from.SendGump(new Tools_tools_ninjitsu(from, m_Scroll));
+                        }
+                        break;
+                    }
+                case 3:
+                    {
+                        if (HasSpell(from, SpellRegistry.GetRegistryNumber(typeof(AnimalForm))))
+                        {
+                            new AnimalForm(from, null).Cast();
+                            from.SendGump(new Tools_tools_ninjitsu(from, m_Scroll));
+                        }
+                        break;
+                    }
+                case 4:
+                    {
+                        if (HasSpell(from, SpellRegistry.GetRegistryNumber(typeof(KiAttack))))
+                        {
+                            new KiAttack();
+                            from.SendGump(new Tools_tools_ninjitsu(from, m_Scroll));
+                        }
+                        break;
+                    }
+                case 5:
+                    {
+                        if (HasSpell(from, SpellRegistry.GetRegistryNumber(typeof(SurpriseAttack))))
+                        {
+                            new SurpriseAttack(); from.SendGump(new Tools_tools_ninjitsu(from, m_Scroll));
+                        }
+                        break;
+                    }
+                case 6:
+                    {
+                        if (HasSpell(from, SpellRegistry.GetRegistryNumber(typeof(Backstab))))
+                        {
+                            new Backstab();
+                            from.SendGump(new Tools_tools_ninjitsu(from, m_Scroll));
+                        }
+                        break;
+                    }
+                case 7:
+                    {
+                        if (HasSpell(from, SpellRegistry.GetRegistryNumber(typeof(Shadowjump))))
+                        {
+                            new Shadowjump(from, null).Cast();
+                            from.SendGump(new Tools_tools_ninjitsu(from, m_Scroll));
+                        }
+                        break;
+                    }
+                case 8:
+                    {
+                        if (HasSpell(from, SpellRegistry.GetRegistryNumber(typeof(MirrorImage))))
+                        {
+                            new MirrorImage(from, null).Cast();
+                            from.SendGump(new Tools_tools_ninjitsu(from, m_Scroll));
+                        }
+                        break;
+                    }
             }
         }
     }
