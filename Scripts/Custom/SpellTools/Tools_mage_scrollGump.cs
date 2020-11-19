@@ -753,12 +753,12 @@ namespace Server.Gumps
                         from.SendGump(new Tools_mage_scrollGump(from, m_Scroll));
                         break;
                     }
-/*                case 64:
+                case 64:
                     {
                         from.CloseGump(typeof(Tools_tools_mage));
                         from.SendGump(new Tools_tools_mage(from, m_Scroll));
                         break;
-                    }*/
+                    }
             }
         }
     }
@@ -776,7 +776,7 @@ namespace Server.Gumps
         public Tools_tools_mage(Mobile from, Tools_mage_scroll scroll) : base(0, 0)
         {
             m_Scroll = scroll;
-            this.Closable = true;
+            this.Closable = false;
             this.Disposable = true;
             this.Dragable = true;
             this.Resizable = false;

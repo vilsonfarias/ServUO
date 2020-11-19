@@ -165,27 +165,27 @@ namespace Server.Gumps
 
             if (HasSpell(from, SpellRegistry.GetRegistryNumber(typeof(HonorableExecution))) && m_Scroll.B01HonorableExecution == 1)
             {
-                this.AddButton(dby, 5, 21280, 21280, 1, GumpButtonType.Reply, 1); dby = dby + 45;
+                this.AddButton(dby, 5, 21536, 21536, 1, GumpButtonType.Reply, 1); dby = dby + 45;
             }
             if (HasSpell(from, SpellRegistry.GetRegistryNumber(typeof(Confidence))) && m_Scroll.BI02Confidence == 1)
             {
-                this.AddButton(dby, 5, 21281, 21281, 2, GumpButtonType.Reply, 1); dby = dby + 45;
+                this.AddButton(dby, 5, 21537, 21537, 2, GumpButtonType.Reply, 1); dby = dby + 45;
             }
             if (HasSpell(from, SpellRegistry.GetRegistryNumber(typeof(CounterAttack))) && m_Scroll.BI03CounterAttack == 1)
             {
-                this.AddButton(dby, 5, 21282, 21282, 3, GumpButtonType.Reply, 1); dby = dby + 45;
+                this.AddButton(dby, 5, 21538, 21538, 3, GumpButtonType.Reply, 1); dby = dby + 45;
             }
             if (HasSpell(from, SpellRegistry.GetRegistryNumber(typeof(LightningStrike))) && m_Scroll.BI04LightningStrike == 1)
             {
-                this.AddButton(dby, 5, 21283, 21283, 4, GumpButtonType.Reply, 1); dby = dby + 45;
+                this.AddButton(dby, 5, 21539, 21539, 4, GumpButtonType.Reply, 1); dby = dby + 45;
             }
             if (HasSpell(from, SpellRegistry.GetRegistryNumber(typeof(Evasion))) && m_Scroll.BI05Evasion == 1)
             {
-                this.AddButton(dby, 5, 21284, 21284, 5, GumpButtonType.Reply, 1); dby = dby + 45;
+                this.AddButton(dby, 5, 21540, 21540, 5, GumpButtonType.Reply, 1); dby = dby + 45;
             }
             if (HasSpell(from, SpellRegistry.GetRegistryNumber(typeof(MomentumStrike))) && m_Scroll.BI06MomentumStrike == 1)
             {
-                this.AddButton(dby, 5, 21285, 21285, 6, GumpButtonType.Reply, 1); dby = dby + 45;
+                this.AddButton(dby, 5, 21541, 21541, 6, GumpButtonType.Reply, 1); dby = dby + 45;
             }
         }
 

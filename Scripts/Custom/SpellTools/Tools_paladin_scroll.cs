@@ -44,7 +44,7 @@ namespace Server.Items
         {
             LootType = LootType.Blessed;
             Hue = 0xB8E;
-            Name = "Paladin Creed";
+            Name = "Chilvary Toolbar";
         }
 
         public Tools_paladin_scroll(Serial serial) : base(serial)

@@ -59,3 +59,4 @@ ServUO.1.0.0.nupkg
 Application/Properties/PublishProfiles/FolderProfile.pubxml
 Application/Properties/PublishProfiles/FolderProfile.pubxml.user
 .DS_Store
+publish/

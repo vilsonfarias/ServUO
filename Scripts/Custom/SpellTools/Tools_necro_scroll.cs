@@ -62,7 +62,7 @@ namespace Server.Items
         {
             LootType = LootType.Blessed;
             Hue = 0xB85;
-            Name = "Necromancer Notes";
+            Name = "Necromancy Toolbar";
         }
 
         public Tools_necro_scroll(Serial serial) : base(serial)

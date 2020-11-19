@@ -32,7 +32,7 @@ namespace Server.Items
         {
             LootType = LootType.Blessed;
             Hue = 0x58;
-            Name = "Samurai Creed";
+            Name = "Bushido Toolbar";
         }
 
         public Tools_bushido_scroll(Serial serial) : base(serial)

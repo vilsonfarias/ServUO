@@ -221,7 +221,7 @@ namespace Server.Items
         {
             LootType = LootType.Blessed;
             Hue = 0x5B6;
-            Name = "Mage Notes";
+            Name = "Magery Toolbar";
         }
 
         public Tools_mage_scroll(Serial serial) : base(serial)

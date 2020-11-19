@@ -37,8 +37,8 @@ namespace Server.Items
         public Tools_ninjitsu_scroll() : base(0x14F0)
         {
             LootType = LootType.Blessed;
-            Hue = 0x58;
-            Name = "Ninja Creed";
+            Hue = 0x16b;
+            Name = "Ninjtsu Toolbar";
         }
 
         public Tools_ninjitsu_scroll(Serial serial) : base(serial)
